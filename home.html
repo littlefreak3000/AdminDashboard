@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>TTA Web Client</title>
+        <script src="lib/jquery-3.3.1.min.js"></script>
+        <script src="lib/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac-sha256.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.min.js"></script>
+        <script src="src/TTACommon.js"></script> 
+        <script src="src/Picker.js"></script>
+        <script src="src/TaskDisplay.js"></script>
+        <script src="src/UserDisplay.js"></script>
+        <script src="src/home.js"></script>        
+
+        <link rel='stylesheet' href="style/bootstrap.min.css" type='text/css' />
+        <link rel='stylesheet' href="style/common.css" type='text/css' />
+        <link rel="icon" type="image/png" href="images/TTAIcon.png"/>
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                <a class="navbar-brand" href="home.html"><img style="width: 32px;height: 32px;" src="images/TTAIcon.png">Test Tool Automation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#user">Users</a>
+                        </div>
+                    </li>
+                </ul>
+                <div id="dateTime" class='nav-item navbar-text'></div>
+                <div>
+                    <div id="username" class="nav-item navbar-text"
+                        style='display: inline;'></div>
+                    <button class="btn btn-outline-light my-2 my-sm-0" onclick="logOut()">Log Out</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="d-flex three-col">
+            <div class="left-nav bg-light border-right">
+
+            </div>
+
+            <div class="d-flex flex-column align-content-center bg-white border-right">
+                    <div class="container-fluid border-bottom">
+                        <div class="row p-2">
+                            <div class="col">ALL</div>
+                            <div class="dropdown col-auto">
+                                <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="picker" class="task-nav align-self-stretch">
+                        <div id="spinner" class="spinner-border text-success my-3 align-self-center" role="status"></div>
+                    </div>
+            </div>
+
+            <div id="display" class="flex-grow-1 flex-fill bg-light info-frame">
+        
+            </div>
+        </div>
+
+    </body>
+</html>

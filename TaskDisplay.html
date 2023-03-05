@@ -1,0 +1,63 @@
+<div class="card w-100">
+    <div class="card-body">
+        <h5 id='title' class="card-title">TITLE</h5>
+        <div class="row card-subtitle mb-2 text-muted p-0">
+            <div id='time' class="col">TIME</div>
+            <div id='creation' class='col-auto'>CREATION</div>
+        </div>
+        <div id="content" class="card-body">
+
+        </div>
+        
+    </div>
+</div>
+
+<div id="view-job" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Choose a Group</h5>
+                <button type="button" class="btn btn-success mx-1" data-toggle="modal" data-target="#new-group">New Group</button>
+                <button type="button" class="close btn-outline-success" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <picker-panel id="group-picker" data-item="#group-item"></picker-panel>
+            </div>
+            <div class="modal-footer">
+                <button id="save-changes" type="button" class="btn btn-success" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="processTemplate">
+    <div id="group-display" class="card w-100 mb-2">
+        <div id='type' class="card-header">TYPE</div>
+        <div id='filters' class="card-body">
+            
+        </div>
+        <div class="d-flex pl-5 border-bottom">
+            <h6 scope="col" class='col-3'>Start Time</h6>
+            <h6 scope="col" class='col-3'>End Time</h6>
+            <h6 scope="col" class='col-2'>Schedule</h6>
+            <h6 scope="col" class='col-3'>Update</h6>
+        </div>
+        <picker-panel id="job-picker" data-item="#job-item" data-loading="#loading" tabindex="-1"></picker-panel>
+    </div>
+</template>
+
+<template id="job-item">
+    <div class="row">
+        <div id='start' class='col-3 small'>STARTTIME</div>
+        <div id='end' class='col-3 small'>ENDTIME</div>
+        <div id='schedule' class='col-2 small'>SCHEDULE</div>
+        <div id='update' class='col-3 small'>UPDATE</div>
+    </div>
+</template>
+
+<template id="filterTemplate">
+    <div class="row">
+        <div id="key" class="small col-sm-1">KEY</div>
+        <div id="value" class="small col-11 text-truncate">VALUE</div>
+    </div>
+</template>

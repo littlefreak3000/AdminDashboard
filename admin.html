@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <title>TTA Admin Tool</title>
+    <script src="node_modules\jquery\dist\jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac-sha256.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.min.js"></script>
+    <script src="src/API.js"></script>
+    <script src="src/TTACommon.js"></script>
+    <script src="src/Picker.js"></script>
+    <script src="src/Display.js"></script>
+    <script src="src/admin.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel='stylesheet' href="style/common.css" type='text/css' />
+    <link rel='stylesheet' href="style/Picker.css" type='text/css' />
+    <link rel="stylesheet" href="node_modules\fontawesome-free\css\all.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
+    <link rel="icon" type="image/png" href="images/TTAIcon.png" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-tta">
+        <a class="navbar-brand" href="admin.html">
+            <img class="mr-1" style="width: 32px;height: 32px;" src="images/TTAIcon.png">
+            Test Tool Automation
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <div id="dateTime" class='nav-item navbar-text'></div>
+            <div>
+                <div id="username" class="nav-item navbar-text" style='display: inline;'></div>
+                <button class="btn btn-outline-light my-2 my-sm-0" onclick="logOut()">Log Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid d-flex flex-row container-main">
+        <nav class="left-nav nav flex-column navbar-dark bg-dark">
+            <a class="nav-link" id="nav-users" href="#" onclick="loadUsers()"><i class="fas fa-user nav-icon active"></i></a>
+            <a class="nav-link" id="nav-groups" href="#"><i class="fas fa-users nav-icon"></i></a>
+            <a class="nav-link" id="nav-tasks" href="#" onclick="loadTasks()"><i class="fas fa-tasks nav-icon"></i></a>
+            <a class="nav-link" id="nav-logs" href="#"><i class="fas fa-stream nav-icon"></i></a>
+        </nav>
+        <div class="picker-main d-flex flex-column align-content-center border-right">
+            <div class="container-fluid border-bottom">
+                <div class="row p-2">
+                    <h4 id="picker-title" class="col">USERS</h4>
+                    <div class="dropdown col-auto">
+                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown">Sort</button>
+                        <div class="dropdown-menu">
+                            <h6 class=dropdown-header>Sort by</h6>
+                            <a class="user-sort dropdown-item small active" data-sort="groupID">Group</a>
+                            <a class="user-sort dropdown-item small" data-sort="firstName">Name</a>
+                            <a class="user-sort dropdown-item small" data-sort="updateTime" data-desc=true>Update
+                                Time</a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class=dropdown-header>Sort order</h6>
+                            <a class="user-sort dropdown-item small active" data-sort="updateTime"
+                                data-desc=true>Ascending</a>
+                            <a class="user-sort dropdown-item small" data-sort="updateTime"
+                                data-desc=true>Descending</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <picker-panel id="user-picker" data-item="#user-item" data-loading="#loading" tabindex="-1"
+                class="task-nav align-self-stretch collapse show"></picker-panel>
+            <picker-panel id="task-picker" data-item="#task-item" data-loading="#loading" tabindex="-1"
+                class="task-nav align-self-stretch collapse"></picker-panel>
+        </div>
+        <display-panel id="display" class="container-fluid p-2">
+        </display-panel>
+
+
+    </div>
+
+    <template id='user-item'>
+        <div class='row'>
+            <div id='name' class="font-title col">NAME</div>
+        </div>
+        <div class='row'>
+            <div id='email' class="font-subtitle col">EMAIL</div>
+            <div id='update' class="font-subtitle text-truncate col-auto">UPDATE</div>
+        </div>
+        <div class='row'>
+            <div id='group' class="font-subtitle text-muted col">GROUP</div>
+        </div>
+    </template>
+
+    <template id="task-item">
+        <div class='row'>
+            <div id='task' class="font-title col">TASK</div>
+        </div>
+        <div class='row'>
+            <div id='description' class="font-subtitle text-truncate col">DESCRIPTION</div>
+            <div id='update' class="font-subtitle text-truncate col-auto">UPDATE</div>
+        </div>
+        <div class='row'>
+            <div id='status' class="font-subtitle text-muted text-truncate col">STATUS</div>
+        </div>
+    </template>
+
+    <template id="loading">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="spinner-border text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </template>
+
+</body>
+
+</html>

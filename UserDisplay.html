@@ -1,0 +1,112 @@
+<div class="card w-100">
+    <div class="card-body">
+        <h5 id='name' class="card-title">NAME</h5>
+        <div class="row card-subtitle mb-2 text-muted p-0">
+            <a id='email' class='col'>EMAIL</a>
+            <div id='update' class='col-auto'>UPDATE</div>
+        </div>
+        <div id='phone' class='card-subtitle mb-2 text-muted'>PHONE</div>
+        <div id='routing' class='card-subtitle mb-2 text-muted'>ROUTING</div>
+        <div id="group-display" class="card w-100">
+            <div class="card-header row  m-0 p-2">
+                <p id="group" class="col m-0 pt-1">GROUP</p>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal"
+                        data-target="#change-group">Change Group</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <label for='rights' class="col-1">Rights</label>
+                    <div id='rights' class="col"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="change-group" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Choose a Group</h5>
+                <button type="button" class="btn btn-success mx-1" data-toggle="modal" data-target="#new-group">New
+                    Group</button>
+                <button type="button" class="close btn-outline-success" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <picker-panel id="group-picker" data-item="#group-item"></picker-panel>
+            </div>
+            <div class="modal-footer">
+                <button id="save-changes" type="button" class="btn btn-success" data-dismiss="modal">Save
+                    changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="new-group" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create a Group</h5>
+                <button type="button" class="close btn-outline-success" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="new-name" class="col-sm-2 col-form-label">Group Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="new-name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="new-description" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="new-description" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row" style="height: 256px">
+                    <label for="rights" class="col-sm-2 col-form-label">Rights</label>
+                    <div class="col-sm-4">
+                        <picker-panel id="removed-picker" tabindex="-1" data-item="#right-item"
+                            class="h-100 rounded border"></picker-panel>
+                    </div>
+                    <div class="col-sm-2 d-flex align-items-center">
+                        <div class="d-flex flex-column w-100">
+                            <button id="add" type="button" class="btn btn-outline-success">ADD &gt&gt</button>
+                            <button id="remove" type="button" class="btn btn-outline-success">&lt&lt REMOVE</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <picker-panel id="added-picker" tabindex="-1" data-item="#right-item"
+                            class="h-100 rounded border"></picker-panel>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="create-group" type="button" class="btn btn-success">Create Group</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id='group-item'>
+    <div class='row'>
+        <div id='group' class='h6 col'>GROUP</div>
+    </div>
+    <div class="row">
+        <label for='rights' class="col-1">RIGHTS</label>
+        <div id='rights' class="col"></div>
+    </div>
+</template>
+
+<template id='right-item'>
+    <div class='row'>
+        <div id='name' class='col small'>NAME</div>
+    </div>
+    <div class="row">
+        <div id='description' class='col small'>DESCRIPTION</div>
+    </div>
+</template>

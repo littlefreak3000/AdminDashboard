@@ -1,0 +1,157 @@
+:root {
+    --tta-dark: #28a745;
+    --tta-light: #b1dfbb;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+a {
+    color: var(--tta-dark);
+}
+
+a:hover {
+    color: var(--tta-light);
+}
+
+.process {
+    max-height: 384px;
+}
+
+.bg-tta {
+    background-color: var(--tta-dark);
+}
+
+.dropdown-item:active {
+    background-color: var(--tta-dark);
+    color: white !important;
+}
+
+.dropdown-item.active {
+    background-color: var(--tta-dark);
+    color: white !important;
+}
+
+.spinner-border {
+    height: 16vmin;
+    width: 16vmin;
+    border-width: 2vmin;
+}
+
+.table-scrollable tbody {
+    display: block;
+    overflow: auto;
+    max-height: 23ex;
+}
+
+.table-scrollable thead tr {
+    display: block;
+}
+
+.left-nav {
+    height: 100%;
+    min-width: 75px;
+    width: 75px;
+    padding: 0;
+    overflow: auto;
+}
+
+.task-nav {
+    width: 100%;
+    overflow: auto;
+}
+
+.info-frame {
+    height: 100%;
+    overflow: auto;
+}
+
+.font-title {
+    height: 1.5em;
+    font-size: 16px;
+}
+
+.font-subtitle {
+    height: 1.5em;
+    font-size: 12px
+}
+
+.font-fade {
+    height: 1.5em;
+    font-size: 12px;
+    color: lightgray;
+}
+
+.running {
+    border-left: 6px solid cyan
+}
+
+.error {
+    border-left: 6px solid red
+}
+
+.complete {
+    border-left: 6px solid #28a745
+}
+
+.unread {
+    border-left: 6px solid #28a745
+}
+
+.unread .font-title {
+    font-weight: bold;
+}
+
+.unread .font-subtitle {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.three-col {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.top-right {
+    position: absolute;
+    right: 16px;
+}
+
+.container-main {
+    height: calc(100% - 60px);
+    padding: 0;
+}
+
+.nav-icon {
+    font-size: 2em;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.picker-main {
+    width: 350px;
+    min-width: 350px;
+}
+
+#job-picker {
+    max-height: 20rem;
+}
+
+#display {
+    max-height: 100%;
+    overflow-y: scroll;
+}
